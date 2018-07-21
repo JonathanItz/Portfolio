@@ -10,6 +10,7 @@ $gray: #f1f1f1;
 
 html {
   height: 100%;
+  overflow-x: hidden;
 }
 
 body {
@@ -18,6 +19,10 @@ body {
 
 .clear {
   clear: both;
+}
+
+a {
+  text-decoration: none;
 }
 
 .hero {
@@ -75,6 +80,9 @@ body {
     float: left;
   }
   .hero-content {
+    z-index: 99999;
+    display: block;
+    position: relative;
     .web {
       font-weight: 400;
     }
@@ -98,13 +106,13 @@ body {
       width: 250px;
       border-radius: 50%;
       position: absolute;
-      transform: translate(0, -50%);
-      right: -100%;
+      transform: translate(500%, -50%);
       border: 6px solid $white;
       transition-duration: 1s;
+      z-index: 1;
     }
     .move-left {
-      right: 33%;
+      transform: translate(-43%, -50%);
     }
     .rotate {
       transform: rotate(-180deg);
@@ -121,7 +129,8 @@ body {
   color: $black;
 
   .sites {
-    width: 990px;
+    max-width: 990px;
+    width: 100%;
     margin: auto;
   }
 
@@ -154,7 +163,7 @@ body {
 
     > :hover:before {
       content: "";
-      background-color: rgba(1,1,1,.5);
+      background-color: rgba(0,0,0,.5);
       position: absolute;
       top: 0;
       bottom: 0;
@@ -169,16 +178,17 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     transition: 0.8s ease-out;
+    background-position: center;
 
     &:hover {
       transform: scale(1.03);
-      h1 {
+      h1, h2 {
         transform: translate(0, -50%);
         opacity: 1;
       }
     }
 
-    h1 {
+    h1, h2 {
       position: relative;
       top: 50%;
       transform: translate(-7%, -50%);
@@ -186,6 +196,10 @@ body {
       color: $white;
       opacity: 0;
       transition: 0.8s ease-out;
+      font-weight: 300;
+    }
+    h2 {
+      font-size: 16px
     }
   }
 }
@@ -201,5 +215,65 @@ footer {
     position: relative;
     top: 50%;
     transform: translate(0, -50%);
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .hero {
+    nav {
+      ul {
+        line-height: 3rem !important;
+        li {
+          float: none;
+          margin: 0;
+          padding: 0;
+          text-align: center !important;
+          display: block;
+          width: 100%;
+        }
+      }
+    }
+  }
+  .hero-content, .hero-image {
+    width: 100% !important;
+    float: none;
+    text-align: center !important;
+  }
+  .hero-image h1, .hero-image i {
+    display: none !important;
+  }
+  .hero .hero-image img {
+    transform: translate(0) !important;
+    position: unset !important;
+  }
+  .hero .hero-container {
+    position: unset !important;
+    transform: translate(0) !important;
+  }
+  .portfolio-container .site-container {
+    width: calc(100% - 5%);
+    float: none;
+    height: 20rem;
+  }
+
+  .site-container {
+    > :before {
+      content: "";
+      background-color: rgba(0,0,0,.5);
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+    }
+  }
+  .site {
+    h1, h2 {
+      opacity: 1 !important;
+      transform: translate(-2%, -50%) !important;
+    }
+    h2 {
+      padding-top: 16px !important;
+    }
   }
 }

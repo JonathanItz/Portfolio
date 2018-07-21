@@ -3,13 +3,17 @@
   margin: 0; }
 
 html {
-  height: 100%; }
+  height: 100%;
+  overflow-x: hidden; }
 
 body {
   overflow-x: hidden; }
 
 .clear {
   clear: both; }
+
+a {
+  text-decoration: none; }
 
 .hero {
   width: 100%;
@@ -51,8 +55,12 @@ body {
   .hero .hero-content, .hero .hero-image {
     width: 50%;
     float: left; }
-  .hero .hero-content .web {
-    font-weight: 400; }
+  .hero .hero-content {
+    z-index: 99999;
+    display: block;
+    position: relative; }
+    .hero .hero-content .web {
+      font-weight: 400; }
   .hero .hero-image h1 {
     font-weight: 300; }
   .hero .hero-image * {
@@ -68,13 +76,14 @@ body {
     width: 250px;
     border-radius: 50%;
     position: absolute;
-    -webkit-transform: translate(0, -50%);
-            transform: translate(0, -50%);
-    right: -100%;
+    -webkit-transform: translate(500%, -50%);
+            transform: translate(500%, -50%);
     border: 6px solid #fff;
-    transition-duration: 1s; }
+    transition-duration: 1s;
+    z-index: 1; }
   .hero .hero-image .move-left {
-    right: 33%; }
+    -webkit-transform: translate(-43%, -50%);
+            transform: translate(-43%, -50%); }
   .hero .hero-image .rotate {
     -webkit-transform: rotate(-180deg);
             transform: rotate(-180deg); }
@@ -89,7 +98,8 @@ body {
   font-family: "Quicksand", sans-serif;
   color: #333; }
   .portfolio-container .sites {
-    width: 990px;
+    max-width: 990px;
+    width: 100%;
     margin: auto; }
   .portfolio-container .sites-title h1 {
     text-align: center;
@@ -112,7 +122,7 @@ body {
       transition: 0.8s ease-out; }
     .portfolio-container .site-container > :hover:before {
       content: "";
-      background-color: rgba(1, 1, 1, 0.5);
+      background-color: rgba(0, 0, 0, 0.5);
       position: absolute;
       top: 0;
       bottom: 0;
@@ -123,15 +133,16 @@ body {
     height: 100%;
     background-size: cover;
     background-repeat: no-repeat;
-    transition: 0.8s ease-out; }
+    transition: 0.8s ease-out;
+    background-position: center; }
     .portfolio-container .site:hover {
       -webkit-transform: scale(1.03);
               transform: scale(1.03); }
-      .portfolio-container .site:hover h1 {
+      .portfolio-container .site:hover h1, .portfolio-container .site:hover h2 {
         -webkit-transform: translate(0, -50%);
                 transform: translate(0, -50%);
         opacity: 1; }
-    .portfolio-container .site h1 {
+    .portfolio-container .site h1, .portfolio-container .site h2 {
       position: relative;
       top: 50%;
       -webkit-transform: translate(-7%, -50%);
@@ -139,7 +150,10 @@ body {
       padding-left: 2rem;
       color: #fff;
       opacity: 0;
-      transition: 0.8s ease-out; }
+      transition: 0.8s ease-out;
+      font-weight: 300; }
+    .portfolio-container .site h2 {
+      font-size: 16px; }
 
 footer {
   height: 100px;
@@ -153,3 +167,46 @@ footer {
     top: 50%;
     -webkit-transform: translate(0, -50%);
             transform: translate(0, -50%); }
+
+@media only screen and (max-width: 768px) {
+  .hero nav ul {
+    line-height: 3rem !important; }
+    .hero nav ul li {
+      float: none;
+      margin: 0;
+      padding: 0;
+      text-align: center !important;
+      display: block;
+      width: 100%; }
+  .hero-content, .hero-image {
+    width: 100% !important;
+    float: none;
+    text-align: center !important; }
+  .hero-image h1, .hero-image i {
+    display: none !important; }
+  .hero .hero-image img {
+    -webkit-transform: translate(0) !important;
+            transform: translate(0) !important;
+    position: unset !important; }
+  .hero .hero-container {
+    position: unset !important;
+    -webkit-transform: translate(0) !important;
+            transform: translate(0) !important; }
+  .portfolio-container .site-container {
+    width: calc(100% - 5%);
+    float: none;
+    height: 20rem; }
+  .site-container > :before {
+    content: "";
+    background-color: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0; }
+  .site h1, .site h2 {
+    opacity: 1 !important;
+    -webkit-transform: translate(-2%, -50%) !important;
+            transform: translate(-2%, -50%) !important; }
+  .site h2 {
+    padding-top: 16px !important; } }
