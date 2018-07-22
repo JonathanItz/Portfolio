@@ -195,7 +195,7 @@ a {
       padding-left: 2rem;
       color: $white;
       opacity: 0;
-      transition: 0.8s ease-out;
+      transition: 0.5s ease-out;
       font-weight: 300;
     }
     h2 {
@@ -245,6 +245,8 @@ footer {
   .hero .hero-image img {
     transform: translate(0) !important;
     position: unset !important;
+    width: 200px;
+    margin-top: 2rem;
   }
   .hero .hero-container {
     position: unset !important;

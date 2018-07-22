@@ -150,7 +150,7 @@ a {
       padding-left: 2rem;
       color: #fff;
       opacity: 0;
-      transition: 0.8s ease-out;
+      transition: 0.5s ease-out;
       font-weight: 300; }
     .portfolio-container .site h2 {
       font-size: 16px; }
@@ -187,7 +187,9 @@ footer {
   .hero .hero-image img {
     -webkit-transform: translate(0) !important;
             transform: translate(0) !important;
-    position: unset !important; }
+    position: unset !important;
+    width: 200px;
+    margin-top: 2rem; }
   .hero .hero-container {
     position: unset !important;
     -webkit-transform: translate(0) !important;
